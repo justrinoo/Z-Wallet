@@ -1,0 +1,250 @@
+/* TRANSFER PAGE */
+.transfer-main {
+	padding: 24px 42px;
+}
+.transfer-card {
+	padding: 24px;
+	background-color: #ffffff;
+	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+	border-radius: 25px;
+}
+.transfer-title {
+	color: #3a3d42;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.transfer-form-input {
+	border: none;
+	width: 100%;
+	padding: 10px 42px;
+	color: rgba(58, 61, 66, 0.4);
+	background-color: rgba(58, 61, 66, 0.1);
+	border-radius: 12px;
+	margin-bottom: 20px;
+}
+.transfer-form-input:focus {
+	outline: none;
+}
+.transfer-form-input::placeholder {
+	color: rgba(58, 61, 66, 0.4);
+}
+
+.transfer-card-list-users {
+	display: flex;
+	background-color: #ffffff;
+	padding: 12px 24px;
+	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+	border-radius: 10px;
+}
+.transfer-card-list-users-description {
+	margin: 0px 24px;
+}
+.transfer-card-list-users-description h5 {
+	color: #4d4b57;
+	font-weight: bold;
+	font-size: 18px;
+}
+.transfer-card-list-users-description p {
+	color: #7a7886;
+	font-size: 16px;
+}
+/* END TRANSFER PAGE */
+
+/* AMOUND RECEIVER TRANSFER MONEY */
+.transfer_amoundreceiver-main {
+	width: 100%;
+}
+.transfer_amoundreceiver-title {
+	color: #3a3d42;
+	font-weight: bold;
+	font-size: 18px;
+	margin-bottom: 30px;
+}
+.transfer_amoundreceiver-card {
+	padding: 23px;
+	background-color: #ffffff;
+	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+	border-radius: 25px;
+}
+.transfer_amoundreceiver-instruction {
+	color: #7a7886;
+	font-size: 16px;
+	margin: 32px 0px;
+	width: 50%;
+}
+.transfer_amoundreceiver-rows {
+	text-align: center;
+	/* WAIT UNTIL COMPLETED INPUT */
+}
+.transfer_amoundreceiver-input {
+	margin-bottom: 20px;
+	background-color: transparent;
+	text-align: center;
+	width: 50%;
+	font-size: 42px;
+	font-weight: bold;
+	border: none;
+	color: #6379f4;
+}
+.transfer_amoundreceiver-input:focus {
+	outline: none;
+}
+.transfer_amoundreceiver-input::placeholder {
+	outline: none;
+	color: #b5bdcc;
+}
+.transfer_amoundreceiver-money-available {
+	margin-bottom: 40px;
+	color: #3a3d42;
+	font-weight: bold;
+	font-size: 16px;
+}
+.transfer_amoundreceiver-parent-notes {
+	position: relative;
+}
+.transfer_amoundreceiver-parent-notes > img {
+	position: absolute;
+	top: 5px;
+}
+.transfer_amoundreceiver-button {
+	background-color: #6379f4;
+	border: none;
+	width: 17%;
+	color: #ffffff;
+	font-weight: bold;
+	font-size: 18px;
+	padding: 10px 0px;
+	box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
+	border-radius: 12px;
+}
+
+.transfer_detail-main {
+	margin: 32px 0px;
+}
+.transfer_detail-title-detail {
+	color: #3a3d42;
+	font-weight: bold;
+	font-size: 18px;
+}
+.transfer_detail-card {
+	padding: 12px;
+	margin: 8px 0px;
+	background-color: #ffffff;
+	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+	border-radius: 10px;
+}
+.transfer_detail-title {
+	color: #7a7886;
+	font-size: 16px;
+}
+.transfer_detail-description {
+	color: #514f5b;
+	font-weight: bold;
+	font-size: 22px;
+}
+.transfer_popup {
+	background-color: #ffffff;
+	padding: 24px;
+	position: absolute;
+	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+	border-radius: 25px;
+	top: 180px;
+	left: 30px;
+}
+.modal_title {
+	font-weight: bold;
+	font-size: 18px;
+	color: #3a3d42;
+}
+.modal_description {
+	color: rgba(58, 61, 66, 0.6);
+	font-size: 16px;
+	width: 70%;
+}
+.modal_button {
+	color: #ffffff;
+	font-weight: bold;
+	font-size: 18px;
+	margin-top: 30px;
+	background-color: #6379f4;
+	padding: 12px 42px;
+	border: none;
+	box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
+	border-radius: 12px;
+}
+
+.transfer_invoice-main {
+	padding: 12px 24px;
+	background-color: #ffffff;
+	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+	border-radius: 25px;
+}
+.transfer_invoice-status-success {
+	text-align: center;
+}
+.transfer_invoice-status-title-success {
+	color: #4d4b57;
+	font-weight: bold;
+	font-size: 22px;
+	margin: 24px 0px;
+}
+.transfer_invoice-status-title-failed {
+	color: #4d4b57;
+	font-weight: bold;
+	font-size: 22px;
+	margin: 24px 0px;
+}
+.transfer_invoice-message-failed {
+	color: #7a7886;
+	font-size: 16px;
+	width: 80%;
+	margin: auto;
+}
+.transfer_invoice-list {
+	padding: 12px;
+	margin: 8px;
+	background-color: #ffffff;
+	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+	border-radius: 10px;
+}
+.transfer_invoice-list p {
+	color: #7a7886;
+	font-size: 16px;
+}
+.transfer_invoice-list h5 {
+	color: #514f5b;
+	font-weight: bold;
+	font-size: 22px;
+}
+.transfer_invoice-list-receiver {
+	display: flex;
+}
+.transfer_invoice-button-option {
+	display: flex;
+	justify-content: flex-end;
+	margin: 40px 0px 0px 0px;
+}
+.transfer_invoice-button-download {
+	padding: 10px 24px;
+	border: none;
+	margin: 0px 10px;
+	background-color: rgba(99, 121, 244, 0.15);
+	box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
+	border-radius: 12px;
+	color: #6379f4;
+	font-weight: bold;
+	font-size: 18px;
+}
+.transfer_invoice-button-back {
+	padding: 10px 24px;
+	color: #ffffff;
+	background-color: #6379f4;
+	box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
+	border-radius: 12px;
+	border: none;
+	margin: 0px 10px;
+	font-weight: bold;
+	font-size: 18px;
+}
+/* END AMOUND RECEIVER TRANSFER MONEY */

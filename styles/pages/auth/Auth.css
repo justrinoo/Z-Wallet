@@ -1,0 +1,204 @@
+.auth_main {
+	display: flex;
+	justify-content: space-between;
+}
+.auth_title {
+	margin: 18px 0px 0px 0px;
+}
+.auth_column:nth-child(1) {
+	padding: 0px 92px;
+	height: 115vh;
+	background-color: #6379f4;
+	width: 50%;
+	color: #ffffff;
+	font-weight: bold;
+	font-size: 29px;
+}
+.auth_column:nth-child(2) {
+	padding: 42px;
+	width: 50%;
+}
+.auth_pin {
+	padding: 92px 42px;
+}
+.auth_linewave {
+	position: absolute;
+	left: 0px;
+	width: 50%;
+	height: 80%;
+}
+.auth_content-parent-image {
+	margin-bottom: 20px;
+}
+.auth_content-image {
+	width: 412px;
+	height: 450px;
+}
+.auth_content-title-brand {
+	color: #ffffff;
+	font-weight: bold;
+	font-size: 24px;
+	display: block;
+	text-align: start;
+}
+.auth__content-paragraph {
+	font-size: 14px;
+	font-weight: normal;
+	text-align: start;
+	margin: 26px ​0px;
+	color: rgba(255, 255, 255, 0.8);
+}
+.auth_form-title {
+	color: #3a3d42;
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 33px;
+	width: 70%;
+}
+.auth_form-paragraph {
+	color: rgba(58, 61, 66, 0.6);
+	margin: 12px 0px 0px 0px;
+	font-size: 16px;
+	width: 70%;
+}
+.auth_form {
+	width: 70%;
+	margin: 21px 0px;
+}
+.auth_form-container {
+	position: relative;
+}
+.auth_form-container > svg {
+	position: absolute;
+	top: 4px;
+	left: 0px;
+}
+.auth_form-title-error {
+	color: #ff5b37;
+	font-weight: 600;
+	font-size: 18px;
+}
+
+.auth_form-input:nth-child(1) {
+	color: rgba(169, 169, 169, 0.8);
+	font-size: 16px;
+	padding: 8px 0px 4px 35px;
+	width: 100%;
+	border: none;
+	border-bottom: 1.5px solid rgba(169, 169, 169, 0.6);
+}
+.auth_form-input:nth-child(2) {
+	color: rgba(169, 169, 169, 0.8);
+	font-size: 16px;
+	padding: 8px 0px 4px 35px;
+	width: 100%;
+	border: none;
+	border-bottom: 1.5px solid rgba(169, 169, 169, 0.6);
+}
+.auth_form-input-active {
+	color: rgba(169, 169, 169, 0.8);
+	font-size: 16px;
+	padding: 8px 0px 4px 35px;
+	width: 100%;
+	border: none;
+	border-bottom: 2px solid #6379f4;
+}
+.auth_form-input-active:focus {
+	outline: none;
+}
+.auth_form-input::placeholder {
+	color: rgba(169, 169, 169, 0.8);
+}
+.auth_form-input:focus {
+	outline: none;
+}
+.auth_form-forgotpassword {
+	color: rgba(58, 61, 66, 0.8);
+	font-weight: 600;
+	font-size: 14px;
+	cursor: pointer;
+}
+.auth_form-forgotpassword:hover {
+	color: rgba(58, 61, 66, 0.8);
+	text-decoration: underline;
+}
+.auth_form-button {
+	border: none;
+	width: 100%;
+	padding: 14px 0px;
+	margin: 38px 0px;
+	background-color: #6379f4;
+	box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
+	border-radius: 12px;
+	color: #ffffff;
+	font-weight: bold;
+	font-size: 18px;
+}
+.auth_form-button:disabled {
+	background-color: #dadada;
+	box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
+	border-radius: 12px;
+	color: #88888f;
+	font-weight: bold;
+	font-size: 18px;
+}
+.auth_form-title-to-signup {
+	text-align: center;
+	color: rgba(58, 61, 66, 0.8);
+	font-size: 16px;
+}
+.input_active {
+	border-bottom: 1.5px solid #6379f4;
+}
+
+/* PIN */
+
+.auth_pin-input {
+	width: 100%;
+	height: 60px;
+	padding: 0px 16px;
+	background-color: #ffffff;
+	border: 1px solid rgba(169, 169, 169, 0.6);
+	box-shadow: 0px 10px 75px rgba(147, 147, 147, 0.1);
+	border-radius: 10px;
+}
+.auth_pin-title {
+	color: #3a3d42;
+	width: 60%;
+	font-weight: bold;
+	line-height: 2.5rem;
+	font-size: 24px;
+}
+.auth_pin-description {
+	margin-top: 24px;
+	margin-bottom: 24px;
+	width: 70%;
+	color: rgba(58, 61, 66, 0.6);
+	font-size: 16px;
+}
+.auth_pin-form {
+	margin-top: 42px;
+	width: 70%;
+}
+
+/* END PIN */
+
+/* RESET PASSWORD */
+.auth_reset {
+	padding: 52px 42px;
+}
+.auth_reset-title {
+	width: 60%;
+	color: #3a3d42;
+	font-weight: bold;
+	font-size: 24px;
+	line-height: 2.5rem;
+	margin-bottom: 30px;
+}
+.auth_reset-paragraph {
+	color: rgba(58, 61, 66, 0.6);
+	font-size: 16px;
+	width: 65%;
+	line-height: 1.8rem;
+}
+/*  END RESET PASSWORD */

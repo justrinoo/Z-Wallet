@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800&display=swap");
+@import url(./pages/auth/Auth.css);
+@import url(./home/dashboard/style.css);
+@import url(./home/transfer/style.css);
+*,
+html {
+	margin: 0px;
+	padding: 0px;
+	font-size: 1rem;
+	font-family: "Nunito Sans", sans-serif;
+}
+
+.container_main {
+	padding: 0px 92px !important;
+}
+
+/* NAVBAR */
+
+.nav__main {
+	background-color: #ffffff;
+	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+	border-radius: 0px 0px 25px 25px;
+}
+.nav__brand-title {
+	color: #6379f4;
+	font-weight: bold;
+	font-size: 29px;
+	cursor: pointer;
+}
+.nav__brand-title:hover {
+	text-decoration: underline;
+}
+.nav__profile-user-name {
+	color: #3a3d42;
+	font-weight: bold;
+	font-size: 18px;
+}
+.nav__profile-user-tel {
+	color: rgba(58, 61, 66, 0.9);
+	font-size: 13px;
+}
+
+/* FOOTER */
+.footer_main {
+	margin-top: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #6379f4;
+	color: #ffffff;
+}
+.footer_text-copyright {
+	color: rgba(239, 239, 239, 0.9);
+	font-size: 16px;
+	margin-top: 30px;
+}
+.footer_column {
+	display: flex;
+}
+.footer_text-contact-tel {
+	margin-top: 20px;
+	margin-right: 20px;
+	color: #efefef;
+	font-weight: 600;
+	font-size: 16px;
+}
+.footer_text-contact-mail {
+	margin-top: 20px;
+	margin-right: 0px;
+	color: #efefef;
+	font-weight: 600;
+	font-size: 16px;
+}
