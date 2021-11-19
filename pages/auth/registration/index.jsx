@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
 	Button,
 	Input,
@@ -9,11 +9,13 @@ import {
 	Lock,
 } from "components";
 
-// import Image from "next/image";
+import { useSelector, useDispatch } from "react-redux";
+import { register } from "store/actions/auth";
 import Link from "next/link";
-import axios from "utils/axios";
 import { useRouter } from "next/dist/client/router";
 export default function Login() {
+	const dispatch = useDispatch();
+	const auth = useSelector((state) => state.auth);
 	const router = useRouter();
 	const [formRegist, setFormRegist] = useState({
 		firstName: "",
@@ -23,7 +25,7 @@ export default function Login() {
 	});
 	const [isError, setError] = useState(false);
 	const [isLoading, setLoading] = useState(false);
-	const [message, setMessage] = useState("");
+	const [message, setMessage] = useState(auth.message);
 
 	const changeTextInput = (event) => {
 		setFormRegist({ ...formRegist, [event.target.name]: event.target.value });
@@ -35,25 +37,28 @@ export default function Login() {
 			event.preventDefault();
 			const { firstName, lastName, email, password } = formRegist;
 			const setDataRegist = { firstName, lastName, email, password };
-			const response = await axios.post("/auth/register", setDataRegist);
-			if (response.status === 200) {
-				event.target.reset();
-				setFormRegist({
-					firstName: "",
-					lastName: "",
-					email: "",
-					password: "",
-				});
-				router.push("/auth/login");
-			}
+			// const response = await axios.post("/auth/register", setDataRegist);
+			await dispatch(register(setDataRegist));
+			event.target.reset();
+			setFormRegist({
+				firstName: "",
+				lastName: "",
+				email: "",
+				password: "",
+			});
+			router.push("/auth/login");
 		} catch (error) {
 			setLoading(false);
 			setError(true);
-			setMessage(error.response.data.msg);
+			// setMessage(`${auth.message}`);
 		}
 
 		// console.log("form submit running...", setDataRegist);
 	};
+
+	useEffect(() => {
+		return null;
+	}, [auth]);
 
 	const isDisabled = formRegist.password.split("").length >= 6 ? true : false;
 	const checkFirstName =

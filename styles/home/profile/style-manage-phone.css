@@ -1,0 +1,28 @@
+.profile_managephone-main {
+	padding: 12px 32px !important;
+	margin: 0px 20px;
+	background-color: #ffffff;
+	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+	border-radius: 25px;
+}
+.profile_managephone-card-description-phone {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #ffffff;
+	padding: 12px;
+	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+	border-radius: 10px;
+}
+.profile_managephone-card-description-phone-delete {
+	cursor: pointer;
+}
+.profile_managephone-card-description-phone p {
+	color: #7a7886;
+	font-size: 16px;
+}
+.profile_managephone-card-description-phone h5 {
+	color: #514f5b;
+	font-weight: bold;
+	font-size: 22px;
+}

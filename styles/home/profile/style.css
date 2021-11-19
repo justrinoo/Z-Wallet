@@ -1,0 +1,53 @@
+@import url(./style-detail-profile.css);
+@import url(./style-change-password.css);
+@import url(./style-change-pin.css);
+@import url(./style-manage-phone.css);
+
+.profile_main {
+	margin: 20px;
+	padding: 30px 24px;
+	background-color: #ffffff;
+	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+	border-radius: 25px;
+	text-align: center;
+}
+.profile_information-edit {
+	display: flex;
+	justify-content: center;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.profile_information-text-edit {
+	cursor: pointer;
+	margin-top: 15px;
+	margin: 0px 4px;
+	color: #7a7886;
+	font-size: 16px;
+}
+.profile_information-edit-name {
+	color: #4d4b57;
+	font-weight: bold;
+	font-size: 24px;
+	margin-top: 18px;
+	margin-bottom: 18px;
+}
+.profile_information-edit-telp {
+	color: #7a7886;
+	font-size: 16px;
+}
+.profile_information-edit-menu {
+	background: #e5e8ed;
+	border-radius: 10px;
+	padding: 12px 24px;
+	width: 50%;
+	margin: 28px auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	cursor: pointer;
+}
+.profile_information-edit-menu-text {
+	color: #4d4b57;
+	font-weight: bold;
+	font-size: 16px;
+}

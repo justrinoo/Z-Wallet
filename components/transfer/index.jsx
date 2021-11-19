@@ -5,7 +5,6 @@ export default function TransferComponent() {
 	const [statusNextComp, setStatusNextComp] = useState(false);
 	const [statusInvoicePage, setStatusInvoicePage] = useState(false);
 
-	console.log(statusInvoicePage);
 	return (
 		<>
 			<section className="transfer-main">
@@ -19,8 +18,8 @@ export default function TransferComponent() {
 								<div
 									className="position-absolute"
 									style={{
-										top: "210px",
-										left: "500px",
+										top: "213px",
+										left: "465px",
 										cursor: "default",
 									}}
 								>

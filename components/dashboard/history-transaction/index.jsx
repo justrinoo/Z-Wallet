@@ -1,8 +1,27 @@
 import React, { useState } from "react";
+import axios from "utils/axios";
 
 export default function FilterHistoryTransaction() {
-	// const [showSearch, setShowSearch] = useState(false);
+	const [page, setPage] = useState(1);
+	const [limit, setLimit] = useState(4);
+	const [receivers, setReceivers] = useState([]);
+	const [showMenu, setShowMenu] = useState(false);
+	const filterBy = ['firstname','noTelp'];
 	const isAccept = false;
+
+	const showMenuFilter = (text) => {
+		if (text === "filter") {
+			setShowMenu(true);
+		} else {
+			setShowMenu(false);
+		}
+	};
+
+	const getTransactionHistoryReceiver = async () => {
+		try {
+			// const response = await axios.get(`/user?page=${page}&limit=${limit}&sort=${filte}`);
+		} catch (error) {}
+	};
 
 	return (
 		<>
@@ -14,10 +33,21 @@ export default function FilterHistoryTransaction() {
 								Transaction History
 							</h4>
 
-							<button className="dashboard_filterhistory-card-button">
+							<button
+								className="dashboard_filterhistory-card-button"
+								onClick={() => showMenuFilter("filter")}
+							>
 								Select Filter
 							</button>
 						</div>
+
+						{showMenu ? (
+							<div className="dashboard_filterhistory-card-filter">
+								<span>Filter By firstname</span>
+								<hr />
+								<span>Filter By No telp</span>
+							</div>
+						) : null}
 
 						<div className="dashboard_filterhistory-card-body mt-3">
 							<img

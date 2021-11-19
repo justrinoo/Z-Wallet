@@ -1,0 +1,54 @@
+/* DETAIL PROFILE */
+
+.profile_main-information-detail {
+	padding: 18px 24px;
+	background-color: #ffffff;
+	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+	border-radius: 25px;
+}
+
+.profile_main-information-detail-title {
+	color: #3a3d42;
+	font-weight: bold;
+	font-size: 18px;
+	margin-bottom: 20px;
+}
+.profile_main-information-detail-description {
+	color: #7a7886;
+	font-size: 16px;
+	margin-bottom: 42px;
+	width: 38%;
+	line-height: 1.8rem;
+}
+.profile_main-information-detail-list-description-manage {
+	display: flex;
+	justify-content: space-between;
+}
+.profile_main-information-detail-list-description {
+	padding: 8px 18px;
+	margin-top: 16px;
+	background-color: #ffffff;
+	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+	border-radius: 10px;
+}
+.profile_main-information-detail-list-description-title-field {
+	color: #7a7886;
+	font-size: 16px;
+	margin-top: 10px;
+}
+.profile_main-information-detail-list-description-title-value {
+	color: #514f5b;
+	font-weight: bold;
+	font-size: 22px;
+}
+.profile_main-information-detail-list-description-title-link-manage {
+	color: #6379f4;
+	font-weight: 600;
+	font-size: 16px;
+	cursor: pointer;
+}
+.profile_main-information-detail-list-description-title-link-manage:hover {
+	text-decoration: underline;
+}
+
+/* END DETAIL PROFILE */

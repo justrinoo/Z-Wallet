@@ -2,6 +2,7 @@
 @import url(./pages/auth/Auth.css);
 @import url(./home/dashboard/style.css);
 @import url(./home/transfer/style.css);
+@import url(./home/profile/style.css);
 *,
 html {
 	margin: 0px;
@@ -70,4 +71,35 @@ html {
 	color: #efefef;
 	font-weight: 600;
 	font-size: 16px;
+}
+
+/* NOTIFICATION */
+.dashboard_notification {
+	padding: 12px 24px;
+	width: 25%;
+	right: 10px;
+	background-color: #ffffff;
+	box-shadow: 0px 0px 70px rgba(99, 99, 99, 0.15);
+	border-radius: 20px;
+}
+
+.dashboard_notification-list-income-expanse {
+	padding: 12px 24px;
+	background-color: #ffffff;
+	display: flex;
+	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+	border-radius: 10px;
+	cursor: pointer;
+}
+.dashboard_notification-list-description {
+	margin: 0px 12px;
+}
+.dashboard_notification-list-description p {
+	color: #7a7a7a;
+	font-size: 14px;
+}
+.dashboard_notification-list-description h5 {
+	color: #43484f;
+	font-weight: bold;
+	font-size: 18px;
 }

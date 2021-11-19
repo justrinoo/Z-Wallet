@@ -1,9 +1,14 @@
 import React from "react";
 
-export default function Button({ children, disabled }) {
+export default function Button({ children, disabled, handleClick }) {
 	return (
 		<>
-			<button type="submit" className="auth_form-button" disabled={disabled}>
+			<button
+				type="submit"
+				className="auth_form-button"
+				disabled={disabled}
+				onClick={handleClick}
+			>
 				{children}
 			</button>
 		</>

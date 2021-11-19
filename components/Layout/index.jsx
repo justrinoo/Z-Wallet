@@ -1,6 +1,9 @@
 import Head from "next/head";
-import { Navbar, Footer } from "components";
+import React, { useState } from "react";
+import { Navbar, Footer, Notification } from "components";
 export default function Layout({ children, pageTitle, valueNav }) {
+	const [statusNotif, setStatusNotif] = useState(false);
+
 	return (
 		<>
 			<Head>
@@ -10,7 +13,8 @@ export default function Layout({ children, pageTitle, valueNav }) {
 			<div>
 				{valueNav ? (
 					<>
-						<Navbar />
+						<Navbar setStatusNotif={setStatusNotif} />
+						{statusNotif ? <Notification /> : null}
 						{children}
 						<Footer />
 					</>

@@ -1,6 +1,20 @@
 import React from "react";
 import Link from "next/link";
-export default function Navbar(props) {
+import { useSelector } from "react-redux";
+export default function Navbar({ setStatusNotif }) {
+	console.log(setStatusNotif);
+	const user = useSelector((state) => state.user);
+	const fullname = `${user.users.firstName}${user.users.lastName}`;
+	const telp = `${user.users.telp}`;
+
+	const ShowNotification = (text) => {
+		if (text === "notif") {
+			setStatusNotif(true);
+		} else {
+			setStatusNotif(false);
+		}
+	};
+
 	return (
 		<>
 			<nav className="nav__main d-flex justify-content-between items-center py-4 container_main">
@@ -18,15 +32,19 @@ export default function Navbar(props) {
 							alt="Profile"
 						/>
 						<div className="d-block mx-3">
-							<h5 className="nav__profile-user-name">Robert Chandler</h5>
-							<p className="nav__profile-user-tel">+62 8139 3877 7946</p>
+							<h5 className="nav__profile-user-name">{fullname}</h5>
+							<p className="nav__profile-user-tel">
+								{telp === "undefined" ? "-" : telp}
+							</p>
 						</div>
 						<img
 							src="/icons/bell.svg"
 							className="mt-2 mx-2"
+							style={{ cursor: "pointer" }}
 							width={24}
 							height={24}
 							alt="Profile"
+							onClick={() => ShowNotification("notif")}
 						/>
 					</div>
 				</section>

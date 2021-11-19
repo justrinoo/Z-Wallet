@@ -1,10 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Button, Input, IntroZwallet, Layout, Mail, Lock } from "components";
-import axios from "utils/axios";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "store/actions/auth";
+import { getUserById } from "store/actions/user";
 import { useRouter } from "next/dist/client/router";
+import { getDataCookie } from "middlewares/authorization";
+import Cookies from "js-cookie";
+
+export async function getServerSideProps(context) {
+	const storageCookie = await getDataCookie(context);
+	if (storageCookie.token) {
+		return {
+			redirect: {
+				destination: "/home/dashboard",
+				permanent: false,
+			},
+		};
+	}
+
+	return {
+		props: {},
+	};
+}
 
 export default function Login() {
+	const dispatch = useDispatch();
+	const auth = useSelector((state) => state.auth);
 	const router = useRouter();
 	const [formLogged, setFormLogged] = useState({
 		email: "",
@@ -22,8 +44,20 @@ export default function Login() {
 			event.preventDefault();
 			const { email, password } = formLogged;
 			const setDataLogged = { email, password };
-			const response = await axios.post("/auth/login", setDataLogged);
-			const pin = response.data.data.pin;
+			const response = await dispatch(login(setDataLogged));
+			Cookies.set("token", response.value.data.data.token, {
+				expires: 1,
+			});
+			Cookies.set("user_id", response.value.data.data.id, { expires: 1 });
+			const userId = response.value.data.data.id;
+			const responseUser = await dispatch(getUserById(userId));
+
+			localStorage.setItem(
+				"fullname",
+				`${responseUser.value.data.data.firstName} ${responseUser.value.data.data.lastName}`
+			);
+			localStorage.setItem("telp", response.value.data.data.telp);
+			const pin = response.value.data.data.pin;
 			if (pin === null) {
 				router.push("/auth/pin");
 			} else {
@@ -36,13 +70,15 @@ export default function Login() {
 			});
 		} catch (error) {
 			setError(true);
-			setMessage(error.response.data.msg);
 		}
 	};
 
+	useEffect(() => {
+		setMessage(auth.message);
+	}, [auth]);
+
 	const isDisabled = formLogged.password.split("").length >= 6 && true;
 
-	console.log(message);
 	return (
 		<>
 			<Layout pageTitle="Z-Wallet | Login Page">
@@ -80,7 +116,7 @@ export default function Login() {
 							</div>
 							<div className="text-end">
 								<Link
-									href="/auth/reset-password"
+									href="/auth/forgot-password"
 									className="text-decoration-none"
 									passHref
 								>

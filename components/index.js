@@ -17,6 +17,9 @@ import DetailTransfer from "components/transfer/detailTransfer";
 import Invoice from "components/transfer/invoice";
 import Modal from "components/Modal";
 import InputPin from "components/InputPin";
+import SuccessPin from "components/auth/success-pin";
+import Chart from "components/Chart/chart.js";
+import Notification from "./Notification";
 
 // COMPONENT Menu
 import Dashboard from "components/dashboard";
@@ -32,6 +35,7 @@ import {
 	Person,
 	Mail,
 	Lock,
+	UserIc,
 } from "components/Svg";
 
 export {
@@ -63,4 +67,8 @@ export {
 	Person,
 	Mail,
 	Lock,
+	SuccessPin,
+	Chart,
+	Notification,
+	UserIc,
 };

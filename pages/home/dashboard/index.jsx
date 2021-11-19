@@ -7,7 +7,23 @@ import {
 
 import React, { useState } from "react";
 import Transfer from "../transfer";
+import { getDataCookie } from "middlewares/authorization";
 
+export async function getServerSideProps(context) {
+	const storageCookie = await getDataCookie(context);
+	if (!storageCookie.token) {
+		return {
+			redirect: {
+				destination: "/auth/login",
+				permanent: false,
+			},
+		};
+	}
+
+	return {
+		props: {},
+	};
+}
 export default function HomeDashboard() {
 	const [statusSidebar, setStatusSidebar] = useState(false);
 	const [seeAll, setSeeAll] = useState(false);
@@ -17,7 +33,7 @@ export default function HomeDashboard() {
 			<Layout pageTitle="Home Dashboard" valueNav={true}>
 				<main className="dashboard_main container_main">
 					<section className="row">
-						<Sidebar setStatusSidebar={setStatusSidebar} />
+						<Sidebar />
 						{/* DASHBOARD COMPOENENT */}
 						{!statusSidebar ? (
 							seeAll ? (
@@ -25,9 +41,7 @@ export default function HomeDashboard() {
 							) : (
 								<Dashboard setSeeAll={setSeeAll} />
 							)
-						) : (
-							<Transfer />
-						)}
+						) : null}
 					</section>
 				</main>
 			</Layout>

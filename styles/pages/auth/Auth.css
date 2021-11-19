@@ -19,7 +19,7 @@
 	width: 50%;
 }
 .auth_pin {
-	padding: 92px 42px;
+	padding: 92px 52px;
 }
 .auth_linewave {
 	position: absolute;
@@ -154,6 +154,9 @@
 /* PIN */
 
 .auth_pin-input {
+	color: #3a3d42;
+	font-weight: bold;
+	font-size: 30px;
 	width: 100%;
 	height: 60px;
 	padding: 0px 16px;
@@ -181,6 +184,26 @@
 	width: 70%;
 }
 
+/* SUCCESS PIN */
+.auth_pin-success-main {
+	padding: 62px;
+}
+
+.auth_pin-success-title {
+	margin-top: 30px;
+	margin-bottom: 40px;
+	color: #3a3d42;
+	font-weight: bold;
+	font-size: 24px;
+}
+.auth_pin-success-paragraph {
+	color: rgba(58, 61, 66, 0.6);
+	line-height: 2rem;
+	width: 63%;
+	font-size: 16px;
+}
+
+/* END SUCCESS PIN */
 /* END PIN */
 
 /* RESET PASSWORD */

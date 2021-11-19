@@ -202,4 +202,23 @@
 .dashboard_filterhistory-card-input::placeholder {
 	color: rgba(58, 61, 66, 0.4);
 }
+.dashboard_filterhistory-card-filter {
+	background-color: #ffffff;
+	padding: 24px;
+	width: 20%;
+	position: absolute;
+	right: 120px;
+	margin: 10px 0px;
+	box-shadow: 0px 0px 70px rgba(99, 99, 99, 0.15);
+	border-radius: 20px;
+}
+.dashboard_filterhistory-card-filter span {
+	font-weight: bold;
+	font-size: 16px;
+	color: #7a7886;
+	cursor: pointer;
+}
+.dashboard_filterhistory-card-filter span:hover {
+	text-decoration: underline;
+}
 /* END HISTORY FILTER */
