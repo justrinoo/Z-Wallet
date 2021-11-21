@@ -1,7 +1,9 @@
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import axios from "utils/axios";
 
 export default function FilterHistoryTransaction() {
+	const router = useRouter();
 	const [page, setPage] = useState(1);
 	const [limit, setLimit] = useState(7);
 	const [receivers, setReceivers] = useState([]);
@@ -39,6 +41,7 @@ export default function FilterHistoryTransaction() {
 						: null
 				}`
 			);
+			router.push(`/home/dashboard?filter=${text}`);
 			setShowMenu(false);
 			setReceivers(response.data.data);
 			return textTemp;

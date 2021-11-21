@@ -4,13 +4,29 @@ import { Bar } from "react-chartjs-2";
 export default function Chart({ dataListExpanse, dataListIncome }) {
 	console.log("expanse =>", dataListExpanse);
 	console.log("income =>", dataListIncome);
+	let tempDayExapanse = [];
+
+	dataListExpanse.map((value) => {
+		tempDayExapanse.push(value.day);
+	});
+
+	const totalIncome = dataListIncome.map((value) => value.total);
+	const totalExpanse = dataListExpanse.map((value) => value.total);
+
 	const data = {
-		labels: ["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"],
+		labels: tempDayExapanse,
 		datasets: [
 			{
-				label: "",
-				data: [12, 19, 3, 5, 2, 3],
-				backgroundColor: ["#6379F4", "#9DA6B5"],
+				label: "Income",
+				data: totalIncome,
+				backgroundColor: ["#6379F4", "#6379F4"],
+				borderRadius: 100,
+				barThickness: 12,
+			},
+			{
+				label: "Expanse",
+				data: totalExpanse,
+				backgroundColor: ["#9DA6B5", "#9DA6B5"],
 				borderRadius: 100,
 				barThickness: 12,
 			},
@@ -22,7 +38,7 @@ export default function Chart({ dataListExpanse, dataListIncome }) {
 	};
 	return (
 		<>
-			<div style={{ width: "500px", height: "600px" }}>
+			<div>
 				<Bar data={data} options={options} />
 			</div>
 		</>

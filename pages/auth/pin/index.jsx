@@ -30,11 +30,9 @@ export default function Pin() {
 			let setDataPin =
 				pin.pin1 + pin.pin2 + pin.pin3 + pin.pin4 + pin.pin5 + pin.pin6;
 			const newPin = parseInt(setDataPin);
-			const response = await axios.patch(`/user/pin/${user_id}`, {
+			await axios.patch(`/user/pin/${user_id}`, {
 				pin: newPin,
 			});
-
-			console.log("Berhasil mengubah pin =>", response.data);
 		} catch (error) {
 			new Error(error.response);
 		}

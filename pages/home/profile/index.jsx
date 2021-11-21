@@ -1,15 +1,25 @@
 import { Layout, Sidebar } from "components";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useRef, useState } from "react";
+import { getUserById } from "store/actions/user";
 import axios from "utils/axios";
+import { toast, ToastContainer } from "react-toastify";
 export default function Profile() {
 	const profileFile = useRef("");
+	const dispatch = useDispatch();
 	const user = useSelector((state) => state.user);
 	const id = `${user.users.id}`;
 	const router = useRouter();
-	const [image, setImage] = useState("");
+	const [formImage, setFormImage] = useState({
+		image: "",
+	});
+	// FormDataImage.append("image", image);
+
+	for (const test in formImage) {
+		console.log(formImage[test]);
+	}
 	const profileMenuChangePage = (someText) => {
 		if (someText === id) {
 			router.push(`/home/profile/detail/${someText}`);
@@ -22,15 +32,17 @@ export default function Profile() {
 		profileFile.current.click();
 	};
 
-	const updateImage = async () => {
+	const changeFileImage = async () => {
 		try {
-			const formImage = new FormData();
-			formImage.append("image", image);
-			console.log("data image =>", formImage);
-			const response = await axios.patch(`/user/image/${id}`, formImage);
-			console.log(response.data);
+			const formData = new FormData();
+			for (const data in formImage) {
+				formData.append(data, formImage[data]);
+			}
+			const response = await axios.patch(`/user/image/${id}`, formData);
+			dispatch(getUserById(response.data.data.id));
+			toast.success(response.data.msg);
 		} catch (error) {
-			console.log(error.response);
+			console.log("error =>", error.response);
 		}
 	};
 
@@ -39,9 +51,10 @@ export default function Profile() {
 	const imageProfile = `${user.users.image}`;
 
 	useEffect(() => {
-		image ? updateImage() : null;
-	}, []);
+		formImage.image ? changeFileImage() : null;
+	}, [formImage]);
 
+	console.log(imageProfile);
 	return (
 		<>
 			<Layout pageTitle="Profile" valueNav={true}>
@@ -49,6 +62,7 @@ export default function Profile() {
 					<section className="row">
 						<Sidebar />
 						<section className="col profile_main mt-4">
+							<ToastContainer />
 							<section className="profile_information">
 								<img
 									src={`${
@@ -58,7 +72,7 @@ export default function Profile() {
 									} `}
 									width={80}
 									height={80}
-									style={{ borderRadius: "14px" }}
+									style={{ borderRadius: "14px", objectFit: "cover" }}
 									alt="Profile"
 								/>
 								<div
@@ -74,7 +88,11 @@ export default function Profile() {
 									<input
 										type="file"
 										ref={profileFile}
-										onChange={(e) => setImage({ image: e.target.files[0] })}
+										onChange={(event) =>
+											setFormImage({
+												image: event.target.files[0],
+											})
+										}
 										name="image"
 										style={{ display: "none" }}
 									/>

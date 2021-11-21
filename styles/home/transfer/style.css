@@ -259,3 +259,44 @@
 	font-size: 18px;
 }
 /* END AMOUND RECEIVER TRANSFER MONEY */
+
+/* PAGINATION */
+.transfer_list-receiers_pagination {
+	display: flex;
+	list-style: none;
+	justify-content: center;
+	align-items: center;
+}
+.transfer_list-receiers_pagination-previous {
+	background-color: #ffffff;
+	padding: 12px 20px;
+	border: 1px solid #e2e5ed;
+	border-radius: 4px;
+	margin: 0px 10px 0px 0px;
+}
+.transfer_list-receiers_pagination-active {
+	background-color: #6379f4;
+	color: #ffffff;
+	font-weight: bold;
+	font-size: 18px;
+	padding: 12px 20px;
+	border: 1px solid #e2e5ed;
+	border-radius: 4px;
+	margin: 0px 10px 0px 0px;
+}
+
+.transfer_list-receiers_pagination-page {
+	background-color: #ffffff;
+	padding: 12px 20px;
+	border: 1px solid #e2e5ed;
+	border-radius: 4px;
+	margin: 0px 10px 0px 0px;
+}
+
+.transfer_list-receiers_pagination-next {
+	background-color: #ffffff;
+	padding: 12px 20px;
+	border: 1px solid #e2e5ed;
+	border-radius: 4px;
+	margin: 0px 10px 0px 0px;
+}

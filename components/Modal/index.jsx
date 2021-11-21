@@ -26,9 +26,11 @@ export default function ModalComponent({
 						</p>
 						<p className="text-center text-danger fw-bold">{messageWrong}</p>
 						<div className="row mt-5">
-							{maxPin.map((item, idx) => (
-								<InputPin changePin={checkPin} key={idx} namePin={item} />
-							))}
+							{maxPin === undefined
+								? null
+								: maxPin.map((item, idx) => (
+										<InputPin changePin={checkPin} key={idx} namePin={item} />
+								  ))}
 						</div>
 					</Modal.Body>
 					<Modal.Footer style={{ borderTop: "none", marginTop: "30px" }}>

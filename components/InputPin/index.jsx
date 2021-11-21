@@ -1,6 +1,11 @@
 import React from "react";
 
-export default function InputPin({ changePin, namePin, classNameChildren }) {
+export default function InputPin({
+	changePin,
+	namePin,
+	classNameChildren,
+	value,
+}) {
 	return (
 		<>
 			<div className="col-2">

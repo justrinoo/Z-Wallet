@@ -37,7 +37,7 @@ export default function Balance() {
 					{balanceMoney === "NaN" ? "Please Wait..." : `Rp${balanceMoney}`}
 				</h4>
 				<p className="dashboard_content-info-balance-tel">
-					{user.telp === "undefined" ? "-" : user.telp}
+					{user.noTelp === "undefined" ? "-" : user.noTelp}
 				</p>
 			</div>
 			<div className="dashboard_content-info-balance-right">

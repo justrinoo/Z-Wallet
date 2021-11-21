@@ -5,7 +5,7 @@ export default function Navbar({ setStatusNotif }) {
 	console.log(setStatusNotif);
 	const user = useSelector((state) => state.user);
 	const fullname = `${user.users.firstName}${user.users.lastName}`;
-	const telp = `${user.users.telp}`;
+	const telp = `${user.users.noTelp}`;
 	const image = `${user.users.image}`;
 
 	const ShowNotification = (text) => {
@@ -33,14 +33,14 @@ export default function Navbar({ setStatusNotif }) {
 									: `http://localhost:3001/uploads/${image}`
 							}
 							width={52}
-							style={{ borderRadius: "14px" }}
+							style={{ borderRadius: "14px", objectFit: "cover" }}
 							height={52}
 							alt="Profile"
 						/>
 						<div className="d-block mx-3">
 							<h5 className="nav__profile-user-name">{fullname}</h5>
 							<p className="nav__profile-user-tel">
-								{telp === "undefined" ? "-" : telp}
+								{telp !== "null" ? telp : "-"}
 							</p>
 						</div>
 						<img
