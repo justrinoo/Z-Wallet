@@ -3,12 +3,11 @@ import logger from "redux-logger";
 import { persistStore, persistReducer } from "redux-persist";
 import promiseMiddleware from "redux-promise-middleware";
 import rootReducer from "./reducers";
-import AsyncStorage from "@react-native-community/async-storage";
+import storage from "redux-persist/lib/storage";
 
 const persistConfig = {
 	key: "root",
-	storage: AsyncStorage,
-	whitelist: ["user", "auth"],
+	storage,
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

@@ -2,6 +2,7 @@
 @import url(./style-change-password.css);
 @import url(./style-change-pin.css);
 @import url(./style-manage-phone.css);
+@import url(./style-phone-number.css);
 
 .profile_main {
 	margin: 20px;

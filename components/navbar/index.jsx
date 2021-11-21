@@ -6,6 +6,7 @@ export default function Navbar({ setStatusNotif }) {
 	const user = useSelector((state) => state.user);
 	const fullname = `${user.users.firstName}${user.users.lastName}`;
 	const telp = `${user.users.telp}`;
+	const image = `${user.users.image}`;
 
 	const ShowNotification = (text) => {
 		if (text === "notif") {
@@ -26,8 +27,13 @@ export default function Navbar({ setStatusNotif }) {
 				<section className="nav__profile-user">
 					<div className="d-flex items-center">
 						<img
-							src="/images/dummyProfile.png"
+							src={
+								image === "null"
+									? `/images/dummyProfile.png`
+									: `http://localhost:3001/uploads/${image}`
+							}
 							width={52}
+							style={{ borderRadius: "14px" }}
 							height={52}
 							alt="Profile"
 						/>

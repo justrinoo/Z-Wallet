@@ -27,7 +27,7 @@ export default function auth(state = initialState, action) {
 		case "GETUSERBYID_REJECTED": {
 			return {
 				...state,
-				message: action.payload.response.data.msg,
+				message: action.payload.response.msg,
 				loading: false,
 				error: false,
 			};

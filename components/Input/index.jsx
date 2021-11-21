@@ -7,6 +7,7 @@ export default function Input({
 	onChange,
 	classNameChildren,
 	checkField,
+	onKeyPress,
 }) {
 	return (
 		<>
@@ -19,6 +20,7 @@ export default function Input({
 				placeholder={placeholderChildren}
 				autoComplete="off"
 				onChange={onChange}
+				onKeyPress={onKeyPress}
 			/>
 		</>
 	);

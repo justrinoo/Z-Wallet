@@ -5,7 +5,7 @@ export default function TopUp() {
 	const [statusSidebar, setStatusSidebar] = useState(false);
 	return (
 		<>
-			<Layout pageTitle="Transfer Page" valueNav={true}>
+			<Layout pageTitle="Top Up Page" valueNav={true}>
 				<main className="dashboard_main container_main">
 					<section className="row">
 						<Sidebar />

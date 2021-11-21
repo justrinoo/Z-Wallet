@@ -1,26 +1,42 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 
-export default function listReceiver({ setStatusNextComp, status }) {
-	const handleNextPageAmoundReceiver = (event) => {
-		const value = event.target.localName;
-		if (value === "div") {
-			setStatusNextComp(true);
-		} else {
-			setStatusNextComp(false);
-		}
+export default function ListReCeiver({ receivers }) {
+	const router = useRouter();
+	const detailTransferReceiver = (id) => {
+		router.push({
+			pathname: `/home/transfer/amount/${id}`,
+		});
 	};
-
 	return (
 		<>
 			<div
-				className="transfer-card-list-users"
-				style={status ? { cursor: "pointer" } : { cursor: "default" }}
-				onClick={status ? handleNextPageAmoundReceiver : null}
+				className="transfer-card-list-users mt-3"
+				style={{ cursor: "pointer" }}
+				onClick={() => detailTransferReceiver(receivers.id)}
 			>
-				<Image src="/images/face1.png" width={70} height={70} alt="Profile" />
+				<img
+					src={
+						receivers.image
+							? `http://localhost:3001/uploads/${receivers.image}`
+							: "/images/face1.png"
+					}
+					width={70}
+					height={70}
+					alt="Profile"
+				/>
 				<div className="transfer-card-list-users-description">
-					<h5>Samuel Suhi</h5>
-					<p>+62 813-8492-9994</p>
+					<h5>
+						{receivers ? receivers.firstName : null}{" "}
+						{receivers ? receivers.lastName : null}
+					</h5>
+					<p>
+						{receivers
+							? receivers.telp === undefined
+								? "-"
+								: receivers.telp
+							: null}
+					</p>
 				</div>
 			</div>
 		</>

@@ -46,7 +46,6 @@ export default function ForgotPassword() {
 		setMessage(auth.message);
 	}, [auth.message]);
 	const isDisabled = FormEmail.email.split("").length > 6 && true; // REGEX PATTERN
-	console.log(isError ? "ERRORNYA" : "NULL");
 	return (
 		<>
 			<Layout pageTitle="Z-wallet | Reset Password">

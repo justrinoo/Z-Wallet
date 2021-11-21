@@ -9,11 +9,10 @@ export default function ListUsers({ setSeeAll }) {
 	const [page, setPage] = useState(1);
 	const [limit] = useState(4);
 	const [receivers, setReceivers] = useState([]);
-	const filterBy = "MONTH";
 	const getAllHistoryTransaction = async () => {
 		try {
 			const response = await axios.get(
-				`/transaction/history?page=${page}&limit=${limit}&filter=${filterBy}`
+				`/transaction/history?page=${page}&limit=${limit}`
 			);
 			setReceivers(response.data.data);
 			setPage(response.data.pagination.page);
@@ -48,8 +47,12 @@ export default function ListUsers({ setSeeAll }) {
 							className="dashboard_content-transaction-history-card-list-users mt-3"
 							key={receiver.id}
 						>
-							<Image
-								src="/images/face2.png"
+							<img
+								src={
+									receiver.image
+										? `http://localhost:3001/uploads/${receiver.image}`
+										: "/images/dummyProfile.png"
+								}
 								width={56}
 								height={56}
 								className="d-block"
@@ -63,17 +66,17 @@ export default function ListUsers({ setSeeAll }) {
 											{receiver.fullName}
 										</h5>
 										<p className="dashboard_content-transaction-history-card-list-users-option">
-											{receiver.type}
+											{receiver.type === "send" ? "Transfer" : receiver.type}
 										</p>
 									</div>
 									<span
 										className={`${
-											receiver.status === "success"
+											receiver.type === "send"
 												? "dashboard_content-transaction-history-card-list-users-transfer-money"
 												: "dashboard_content-transaction-history-card-list-users-accept-money"
 										}`}
 									>
-										{receiver.status === "success"
+										{receiver.type === "send"
 											? `-Rp${new Intl.NumberFormat("id-ID").format(
 													receiver.amount
 											  )}`
@@ -86,7 +89,7 @@ export default function ListUsers({ setSeeAll }) {
 						</div>
 					))
 				) : (
-					<p>Please wait...</p>
+					<p className="text-center fw-bold">Transaction not made</p>
 				)}
 			</div>
 		</>

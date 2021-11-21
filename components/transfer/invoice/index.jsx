@@ -1,8 +1,17 @@
 import { useRouter } from "next/dist/client/router";
 
-export default function Invoice() {
+export default function Invoice({ data }) {
+	const {
+		amount,
+		balanceLeft,
+		dateTransaction,
+		notes,
+		receiverName,
+		receiverTelp,
+		receiverlastName,
+		status,
+	} = data;
 	const router = useRouter();
-	const isSuccess = false;
 
 	const GoBackHome = () => {
 		router.push("/home/dashboard");
@@ -11,7 +20,7 @@ export default function Invoice() {
 		<>
 			<section className="transfer_invoice-main">
 				<div className="transfer_invoice-status-success transfer_invoice-status-failed">
-					{isSuccess ? (
+					{status ? (
 						<img
 							src="/icons/success.svg"
 							width={70}
@@ -23,15 +32,15 @@ export default function Invoice() {
 					)}
 					<p
 						className={`${
-							isSuccess
+							status
 								? " transfer_invoice-status-title-success "
 								: "transfer_invoice-status-title-failed"
 						}`}
 					>
-						Transfer {isSuccess ? "Success" : "Failed"}
+						Transfer {status ? "Success" : "Failed"}
 					</p>
 
-					{!isSuccess && (
+					{!status && (
 						<p className="transfer_invoice-message-failed">
 							We can’t transfer your money at the moment, we recommend you to
 							check your internet connection and try again.
@@ -41,27 +50,29 @@ export default function Invoice() {
 
 				<div className="transfer_invoice-list">
 					<p>Amount</p>
-					<h5>Rp.100.000</h5>
+					<h5> Rp{new Intl.NumberFormat("id-ID").format(amount)}</h5>
 				</div>
 				<div className="transfer_invoice-list">
 					<p>Balance Left</p>
-					<h5>Rp20.000</h5>
+					<h5>Rp{new Intl.NumberFormat("id-ID").format(balanceLeft)}</h5>
 				</div>
 				<div className="transfer_invoice-list">
 					<p>Date & Time</p>
-					<h5>{new Date(Date.now()).toDateString()}</h5>
+					<h5>{dateTransaction}</h5>
 				</div>
 				<div className="transfer_invoice-list">
 					<p>Notes</p>
-					<h5>For buying some socks</h5>
+					<h5>{notes}</h5>
 				</div>
 				<div className="transfer_invoice-list">
 					<p>Transfer to</p>
 					<div className="transfer_invoice-list-receiver">
 						<img src="/images/face1.png" width={70} height={70} alt="Face" />
 						<div className="mx-3">
-							<h5>Samuel Suhi</h5>
-							<p>+62 813-8492-9994</p>
+							<h5>
+								{receiverName} {receiverlastName}
+							</h5>
+							<p>{receiverTelp === "" ? "-" : receiverTelp}</p>
 						</div>
 					</div>
 				</div>

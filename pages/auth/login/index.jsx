@@ -51,7 +51,6 @@ export default function Login() {
 			Cookies.set("user_id", response.value.data.data.id, { expires: 1 });
 			const userId = response.value.data.data.id;
 			const responseUser = await dispatch(getUserById(userId));
-
 			localStorage.setItem(
 				"fullname",
 				`${responseUser.value.data.data.firstName} ${responseUser.value.data.data.lastName}`

@@ -1,27 +1,29 @@
-import React from "react";
-
-export default function DetailTransfer() {
+export default function AmountDetail({ data }) {
 	return (
 		<>
 			<section className="transfer_detail-main">
 				<p className="transfer_detail-title-detail">Details</p>
 				<section className="transfer_detail-card">
 					<p className="transfer_detail-title">Amount</p>
-					<h4 className="transfer_detail-description">Rp.100.000</h4>
+					<h4 className="transfer_detail-description">
+						Rp{new Intl.NumberFormat("id-ID").format(data.amount)}
+					</h4>
 				</section>
 				<section className="transfer_detail-card">
 					<p className="transfer_detail-title">Balance Left</p>
-					<h4 className="transfer_detail-description">Rp.20.000</h4>
+					<h4 className="transfer_detail-description">
+						Rp{new Intl.NumberFormat("id-ID").format(data.balanceLeft)}
+					</h4>
 				</section>
 				<section className="transfer_detail-card">
 					<p className="transfer_detail-title">Date & Time</p>
 					<h4 className="transfer_detail-description">
-						{new Date(Date.now()).toDateString()}
+						{data.dateTransaction}
 					</h4>
 				</section>
 				<section className="transfer_detail-card">
 					<p className="transfer_detail-title">Notes</p>
-					<h4 className="transfer_detail-description">For buying some socks</h4>
+					<h4 className="transfer_detail-description">{data.notes}</h4>
 				</section>
 			</section>
 		</>

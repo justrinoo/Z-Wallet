@@ -1,15 +1,24 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { ArrowUp, Plus } from "components";
-import { useSelector } from "react-redux";
+import { getUserById } from "store/actions/user";
+import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
+import Cookies from "js-cookie";
+
 export default function Balance() {
+	const dispatch = useDispatch();
 	const router = useRouter();
-	const user = useSelector((state) => state);
-	const telp = `${user.user.users.telp}`;
+	const [user, setUser] = useState({});
+	// const telp = `${user.telp}`;
+
+	const getUserByIdUser = async () => {
+		const response = await dispatch(getUserById(Cookies.get("user_id")));
+		setUser(response.value.data.data);
+	};
 
 	useEffect(() => {
-		return user;
-	}, [user]);
+		getUserByIdUser();
+	}, []);
 
 	const goToTransferPage = () => {
 		router.push("/home/transfer");
@@ -18,15 +27,17 @@ export default function Balance() {
 	const goToTopUpPage = () => {
 		router.push("/home/top-up");
 	};
+
+	let balanceMoney = new Intl.NumberFormat("id-ID").format(user.balance);
 	return (
 		<>
 			<div className="dashboard_content-info-balance-left">
 				<h6 className="dashboard_content-info-balance-title">Balance</h6>
 				<h4 className="dashboard_content-info-balance-money">
-					Rp{new Intl.NumberFormat("id-ID").format(user.user.users.balance)}
+					{balanceMoney === "NaN" ? "Please Wait..." : `Rp${balanceMoney}`}
 				</h4>
 				<p className="dashboard_content-info-balance-tel">
-					{telp === "undefined" ? "-" : telp}
+					{user.telp === "undefined" ? "-" : user.telp}
 				</p>
 			</div>
 			<div className="dashboard_content-info-balance-right">

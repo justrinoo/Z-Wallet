@@ -2,15 +2,14 @@ import InputPin from "components/InputPin";
 import { useRouter } from "next/dist/client/router";
 import { Modal } from "react-bootstrap";
 
-export default function ModalComponent({ show, onHide, setStatusInvoicePage }) {
-	const VerivicationPin = (text) => {
-		if (text === "TESTING") {
-			setStatusInvoicePage(true);
-		} else {
-			setStatusInvoicePage(false);
-		}
-	};
-	console.log("show =>", show);
+export default function ModalComponent({
+	show,
+	onHide,
+	onClickModal,
+	checkPin,
+	maxPin,
+	messageWrong,
+}) {
 	return (
 		<>
 			<Modal show={show} onHide={onHide} centered contentClassName>
@@ -25,15 +24,15 @@ export default function ModalComponent({ show, onHide, setStatusInvoicePage }) {
 							Enter your 6 digits PIN for confirmation to continue transferring
 							money.
 						</p>
+						<p className="text-center text-danger fw-bold">{messageWrong}</p>
 						<div className="row mt-5">
-							<InputPin changePin={() => null} />
+							{maxPin.map((item, idx) => (
+								<InputPin changePin={checkPin} key={idx} namePin={item} />
+							))}
 						</div>
 					</Modal.Body>
 					<Modal.Footer style={{ borderTop: "none", marginTop: "30px" }}>
-						<button
-							className="modal_button"
-							onClick={() => VerivicationPin("TESTING")}
-						>
+						<button className="modal_button" onClick={onClickModal}>
 							Continue
 						</button>
 					</Modal.Footer>

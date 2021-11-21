@@ -28,7 +28,10 @@ axiosInterceptors.interceptors.response.use(
 			Cookies.remove("token");
 			Cookies.remove("user_id");
 			localStorage.clear();
-			window.location.href = "/auth/login";
+			if (Cookies.get("token")) {
+				alert(error.response.data.msg);
+				window.location.href = "/auth/login";
+			}
 		}
 		return Promise.reject(error);
 	}
