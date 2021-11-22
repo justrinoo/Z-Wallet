@@ -50,6 +50,21 @@ export default function Profile() {
 	const noTelp = `${user.users.noTelp === null ? "-" : user.users.noTelp}`;
 	const imageProfile = `${user.users.image}`;
 
+	const showPopUpDelete = async () => {
+		const question = confirm("Are you sure delete this image ?");
+		if (question) {
+			try {
+				const response = await axios.delete(`/user/image/${id}`);
+				dispatch(getUserById(response.data.data.id));
+				toast.success(response.data.msg);
+			} catch (error) {
+				console.log(error.response);
+			}
+		} else {
+			console.log("cancel image...");
+		}
+	};
+
 	useEffect(() => {
 		formImage.image ? changeFileImage() : null;
 	}, [formImage]);
@@ -75,28 +90,43 @@ export default function Profile() {
 									style={{ borderRadius: "14px", objectFit: "cover" }}
 									alt="Profile"
 								/>
-								<div
-									className="profile_information-edit"
-									onClick={ShowFileInput}
-								>
-									<Image
-										src="/icons/edit.svg"
-										width={11}
-										height={11}
-										alt="Edit Profile"
-									/>
-									<input
-										type="file"
-										ref={profileFile}
-										onChange={(event) =>
-											setFormImage({
-												image: event.target.files[0],
-											})
-										}
-										name="image"
-										style={{ display: "none" }}
-									/>
-									<p className="profile_information-text-edit">Edit</p>
+								<div className="d-flex align-items-center justify-content-center">
+									<div
+										className="profile_information-edit mx-3"
+										onClick={ShowFileInput}
+									>
+										<Image
+											src="/icons/edit.svg"
+											width={11}
+											height={11}
+											alt="Edit Profile"
+										/>
+										<input
+											type="file"
+											ref={profileFile}
+											onChange={(event) =>
+												setFormImage({
+													image: event.target.files[0],
+												})
+											}
+											name="image"
+											style={{ display: "none" }}
+										/>
+										<p className="profile_information-text-edit">Edit</p>
+									</div>
+									<div
+										className="profile_information-edit"
+										onClick={showPopUpDelete}
+									>
+										<Image
+											src="/icons/trash.svg"
+											width={11}
+											height={11}
+											alt="Trash"
+										/>
+
+										<p className="profile_information-text-edit">Delete</p>
+									</div>
 								</div>
 								<h3 className="profile_information-edit-name">{fullName}</h3>
 								<span className="profile_information-edit-telp">{noTelp}</span>

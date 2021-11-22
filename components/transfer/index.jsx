@@ -30,7 +30,6 @@ export default function TransferComponent() {
 			const response = await axios.get(
 				`/user?page=${page}&limit=${limit}&search=${search}`
 			);
-			setLimit(response.data.pagniation.limit);
 			setPage(response.data.pagination.page);
 			setTotalPage(response.data.pagination.totalPage);
 			setReceivers(response.data.data);

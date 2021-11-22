@@ -2,13 +2,13 @@ import { ArrowUp, Plus, Menu, UserIc } from "components";
 import Cookies from "js-cookie";
 import { Modal } from "react-bootstrap";
 import { useRouter } from "next/dist/client/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import axios from "utils/axios";
 
 export default function Sidebar() {
 	const router = useRouter();
-	const [isActive, setActive] = useState("dashboard");
+	const [isActive, setActive] = useState("");
 	const [show, setShow] = useState(false);
 	const [formTopUp, setFormTopUp] = useState({
 		amount: "",
@@ -19,7 +19,8 @@ export default function Sidebar() {
 		router.push(`/home/${text}`);
 	};
 
-	const handleLogout = () => {
+	const handleLogout = async () => {
+		await axios.post("/auth/logout");
 		Cookies.remove("token");
 		Cookies.remove("user_id");
 		localStorage.clear();
@@ -54,6 +55,10 @@ export default function Sidebar() {
 	const changeAmountText = (event) => {
 		setFormTopUp({ ...formTopUp, [event.target.name]: event.target.value });
 	};
+
+	useEffect(() => {
+		return null;
+	}, [isActive]);
 
 	return (
 		<>

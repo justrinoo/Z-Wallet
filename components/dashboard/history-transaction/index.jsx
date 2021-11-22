@@ -1,9 +1,11 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import axios from "utils/axios";
+import Pagination from "react-paginate";
 
 export default function FilterHistoryTransaction() {
 	const router = useRouter();
+	const [totalPage, setTotalPage] = useState(0);
 	const [page, setPage] = useState(1);
 	const [limit, setLimit] = useState(7);
 	const [receivers, setReceivers] = useState([]);
@@ -22,6 +24,7 @@ export default function FilterHistoryTransaction() {
 			const response = await axios.get(
 				`/transaction/history?page=${page}&limit=${limit}`
 			);
+			setTotalPage(response.data.pagination.totalPage);
 			setReceivers(response.data.data);
 		} catch (error) {
 			new Error(error.response);
@@ -43,11 +46,18 @@ export default function FilterHistoryTransaction() {
 			);
 			router.push(`/home/dashboard?filter=${text}`);
 			setShowMenu(false);
+			setTotalPage(response.data.pagination.totalPage);
 			setReceivers(response.data.data);
 			return textTemp;
 		} catch (error) {
 			new Error(error.response);
 		}
+	};
+
+	const changePagination = (event) => {
+		const selectedPage = event.selected + 1;
+		router.push(`/home/dashboard?page=${selectedPage}&limit=${limit}`);
+		setPage(selectedPage, () => getListReceiver());
 	};
 
 	useEffect(() => {
@@ -133,6 +143,17 @@ export default function FilterHistoryTransaction() {
 						) : (
 							<p className="text-center fw-bold">Transaction not made</p>
 						)}
+						<Pagination
+							previousLabel={"<"}
+							nextLabel={">"}
+							pageCount={totalPage}
+							onPageChange={changePagination}
+							containerClassName="transfer_list-receiers_pagination"
+							activeClassName="transfer_list-receiers_pagination-active"
+							previousClassName="transfer_list-receiers_pagination-previous"
+							nextClassName="transfer_list-receiers_pagination-next"
+							pageClassName="transfer_list-receiers_pagination-previous"
+						/>
 					</div>
 				</section>
 			</div>

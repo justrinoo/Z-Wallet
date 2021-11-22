@@ -34,6 +34,7 @@ export default function AmoundReCeiver({ user }) {
 			notes,
 			balanceLeft: sisaBalance,
 			dateTransaction,
+			image: user.image,
 		};
 		router.push({
 			pathname: `/home/transfer/amount/detail/${receiverId}`,
@@ -41,6 +42,8 @@ export default function AmoundReCeiver({ user }) {
 		});
 	};
 
+	const isDisabled = formAmound.amount.split("").length >= 4 && true;
+	console.log();
 	return (
 		<>
 			<Layout pageTitle="Transfer Amount">
@@ -48,8 +51,12 @@ export default function AmoundReCeiver({ user }) {
 					<section className="transfer_amoundreceiver-card">
 						<h5 className="transfer_amoundreceiver-title">Transfer Money</h5>
 						<div className="transfer-card-list-users mt-3">
-							<Image
-								src="/images/face1.png"
+							<img
+								src={
+									user && user.image
+										? `http://localhost:3001/uploads/${user.image}`
+										: "/images/face2.png"
+								}
 								width={70}
 								height={70}
 								alt="Profile"
@@ -59,7 +66,11 @@ export default function AmoundReCeiver({ user }) {
 									{user ? user.firstName : null} {user ? user.lastName : null}
 								</h5>
 								<p>
-									{user ? (user.telp === undefined ? "-" : user.telp) : null}
+									{user
+										? user.noTelp === undefined
+											? "-"
+											: user.noTelp
+										: null}
 								</p>
 							</div>
 						</div>
@@ -68,41 +79,52 @@ export default function AmoundReCeiver({ user }) {
 							Type the amount you want to transfer and then press continue to
 							the next steps.
 						</p>
-						<div className="transfer_amoundreceiver-rows">
-							<input
-								type="text"
-								className="transfer_amoundreceiver-input"
-								onChange={changeInputAmount}
-								name="amount"
-								placeholder="0.00"
-							/>
-							<p className="transfer_amoundreceiver-money-available">
-								Rp.
-								{new Intl.NumberFormat("id-ID").format(
-									users.users.balance
-								)}{" "}
-								Availabe
-							</p>
-							<div className="transfer_amoundreceiver-parent-notes">
-								{/* ICON PENCIL */}
-								<img src="/icons/pencil.svg" alt="Email" />
-								<Input
+						{users.users.balance > 0 ? (
+							<div className="transfer_amoundreceiver-rows">
+								<input
 									type="text"
-									name="notes"
-									classNameChildren="w-50"
+									className="transfer_amoundreceiver-input"
 									onChange={changeInputAmount}
-									placeholderChildren="Add some notes"
+									name="amount"
+									placeholder="0.00"
 								/>
+								<p className="transfer_amoundreceiver-money-available">
+									Rp.
+									{new Intl.NumberFormat("id-ID").format(
+										users.users.balance
+									)}{" "}
+									Availabe
+								</p>
+								<div className="transfer_amoundreceiver-parent-notes">
+									{/* ICON PENCIL */}
+									<img src="/icons/pencil.svg" alt="Email" />
+									<Input
+										type="text"
+										name="notes"
+										classNameChildren="w-50"
+										onChange={changeInputAmount}
+										placeholderChildren="Add some notes"
+									/>
+								</div>
+								<div className="d-flex justify-content-end mt-5">
+									<button
+										onClick={changeToPageDetailTransfer}
+										className={` ${
+											isDisabled
+												? "transfer_amoundreceiver-button"
+												: "transfer_amoundreceiver-button-disabled"
+										}`}
+										disabled={!isDisabled}
+									>
+										Continue
+									</button>
+								</div>
 							</div>
-							<div className="d-flex justify-content-end mt-5">
-								<button
-									onClick={changeToPageDetailTransfer}
-									className="transfer_amoundreceiver-button"
-								>
-									Continue
-								</button>
-							</div>
-						</div>
+						) : (
+							<p className="text-center fw-bold text-danger fs-4">
+								You don{"'"}t have enough balance 😒
+							</p>
+						)}
 					</section>
 				</main>
 			</Layout>

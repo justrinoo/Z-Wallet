@@ -1,4 +1,5 @@
 import { useRouter } from "next/dist/client/router";
+import axios from "utils/axios";
 
 export default function Invoice({ data }) {
 	const {
@@ -10,8 +11,22 @@ export default function Invoice({ data }) {
 		receiverTelp,
 		receiverlastName,
 		status,
+		image,
+		transactionId,
 	} = data;
+	console.log("data transaksi =>", data);
 	const router = useRouter();
+
+	const generateTransaction = async () => {
+		try {
+			const response = await axios.get(`/export/transaction/${transactionId}`);
+			console.log("generate data =>", response.data);
+			router.push(response.data.data.url);
+		} catch (error) {
+			new Error(error.response);
+			console.log(error.response);
+		}
+	};
 
 	const GoBackHome = () => {
 		router.push("/home/dashboard");
@@ -67,7 +82,16 @@ export default function Invoice({ data }) {
 				<div className="transfer_invoice-list">
 					<p>Transfer to</p>
 					<div className="transfer_invoice-list-receiver">
-						<img src="/images/face1.png" width={70} height={70} alt="Face" />
+						<img
+							src={
+								image
+									? `http://localhost:3001/uploads/${image}`
+									: "/images/face2.png"
+							}
+							width={70}
+							height={70}
+							alt="Face"
+						/>
 						<div className="mx-3">
 							<h5>
 								{receiverName} {receiverlastName}
@@ -78,7 +102,10 @@ export default function Invoice({ data }) {
 				</div>
 
 				<div className="transfer_invoice-button-option">
-					<button className="transfer_invoice-button-download">
+					<button
+						className="transfer_invoice-button-download"
+						onClick={generateTransaction}
+					>
 						Download PDF
 					</button>
 					<button className="transfer_invoice-button-back" onClick={GoBackHome}>

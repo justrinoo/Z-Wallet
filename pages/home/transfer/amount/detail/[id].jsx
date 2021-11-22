@@ -41,11 +41,17 @@ export default function DetailTransferPage() {
 			const response = await axios.get(`/user/pin?pin=${setDataPin}`);
 			if (response.status === 200) {
 				// PROSES TRANSFER
-				axios.post("/transaction/transfer", setDataTransfer);
+				const response = await axios.post(
+					"/transaction/transfer",
+					setDataTransfer
+				);
+				console.log("berhasil transaksi =>", response.data);
+				const transactionId = response.data.data.id;
 				const setDataInvoice = {
 					amount,
 					balanceLeft,
 					dateTransaction,
+					transactionId,
 					notes,
 					receiverName: receiver.firstName,
 					receiverlastName: receiver.lastName,
@@ -58,8 +64,8 @@ export default function DetailTransferPage() {
 				});
 			}
 		} catch (error) {
-			console.log(error);
 			if (error.response.status === 400) {
+				new Error(error.response);
 				setMessageModal(error.response.data.msg);
 			}
 		}
@@ -94,11 +100,15 @@ export default function DetailTransferPage() {
 						<section className="col transfer_detail-container mt-4">
 							<p className="transfer_detail-container-title">Transfer to</p>
 							<div className="transfer-card-list-users mt-3">
-								<Image
-									src="/images/face1.png"
+								<img
+									src={
+										receiver.image
+											? `http://localhost:3001/uploads/${receiver.image}`
+											: "/images/face2.png"
+									}
 									width={70}
 									height={70}
-									alt="Profile"
+									alt="Face"
 								/>
 								<div className="transfer-card-list-users-description">
 									<h5>

@@ -103,3 +103,58 @@ html {
 	font-weight: bold;
 	font-size: 18px;
 }
+
+/* LANDING PAGES */
+
+.home-main {
+	background-color: #6379f4;
+	height: 70vh;
+}
+.home-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.home-column {
+	padding: 24px 92px;
+}
+.home-button-logged {
+	border: none;
+	padding: 6px 34px;
+	margin: 0px 10px;
+	background-color: transparent;
+	color: #ffffff;
+	font-weight: bold;
+	font-size: 18px;
+	border: 2px solid #ffffff;
+	box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
+	border-radius: 12px;
+}
+.home-button-registration {
+	border: none;
+	padding: 6px 34px;
+	margin: 0px 10px;
+	border: 2px solid #ffffff;
+	box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
+	border-radius: 12px;
+	color: #6379f4;
+	font-weight: bold;
+	font-size: 18px;
+}
+.home-try-free {
+	background-color: #ffffff;
+	box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
+	border-radius: 12px;
+	border: none;
+	padding: 12px 24px;
+	color: #6379f4;
+	font-weight: bold;
+	font-size: 18px;
+}
+.home-title-choose-zwallet {
+	margin-top: 60px;
+	text-align: center;
+	color: #6379f4;
+	font-weight: 800;
+	font-size: 60px;
+}

@@ -12,6 +12,7 @@ export default function InvoicePage() {
 		receiverName,
 		receiverTelp,
 		receiverlastName,
+		transactionId,
 		status,
 	} = data;
 	const setDataInvoice = {
@@ -23,6 +24,7 @@ export default function InvoicePage() {
 		receiverTelp,
 		receiverlastName,
 		status,
+		transactionId,
 	};
 	// console.log("data hasil transaksi", data);
 	return (

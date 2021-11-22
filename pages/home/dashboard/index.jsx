@@ -35,13 +35,11 @@ export default function HomeDashboard() {
 					<section className="row">
 						<Sidebar />
 						{/* DASHBOARD COMPOENENT */}
-						{!statusSidebar ? (
-							seeAll ? (
-								<FilterHistoryTransaction />
-							) : (
-								<Dashboard setSeeAll={setSeeAll} />
-							)
-						) : null}
+						{seeAll ? (
+							<FilterHistoryTransaction />
+						) : (
+							<Dashboard setSeeAll={setSeeAll} />
+						)}
 					</section>
 				</main>
 			</Layout>
