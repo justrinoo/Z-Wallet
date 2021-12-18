@@ -3,7 +3,7 @@ import Button from "components/Button";
 import Input from "components/Input";
 import IntroZwallet from "components/auth/intro-zwallet";
 import Layout from "components/Layout";
-import Navbar from "components/Navbar";
+import Navbar from "components/navbar";
 import Footer from "components/Footer";
 import InfoBalance from "components/dashboard/balance";
 import StatisticInCome from "components/dashboard/statistic";
