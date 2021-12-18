@@ -18,7 +18,6 @@ export default function TransferComponent() {
 			const response = await axios.get(`/user?page=${page}&limit=${limit}`);
 			setReceivers(response.data.data);
 			setTotalPage(response.data.pagination.totalPage);
-			console.log("total page", totalPage);
 		} catch (error) {
 			new Error(error.response);
 		}

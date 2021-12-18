@@ -43,7 +43,6 @@ export default function AmoundReCeiver({ user }) {
 	};
 
 	const isDisabled = formAmound.amount.split("").length >= 4 && true;
-	console.log();
 	return (
 		<>
 			<Layout pageTitle="Transfer Amount">
@@ -54,7 +53,7 @@ export default function AmoundReCeiver({ user }) {
 							<img
 								src={
 									user && user.image
-										? `http://localhost:3001/uploads/${user.image}`
+										? `${process.env.BASE_URL_PROD}/uploads/${user.image}`
 										: "/images/face2.png"
 								}
 								width={70}

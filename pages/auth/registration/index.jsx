@@ -55,8 +55,6 @@ export default function Login() {
 			setError(true);
 			// setMessage(`${auth.message}`);
 		}
-
-		// console.log("form submit running...", setDataRegist);
 	};
 
 	// useEffect(() => {

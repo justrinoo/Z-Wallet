@@ -48,7 +48,7 @@ export default function Sidebar() {
 			setFormTopUp({ amount: "" });
 			router.push(response.data.data.redirectUrl);
 		} catch (error) {
-			console.log(error.response);
+			new Error(error.response);
 		}
 	};
 
@@ -125,6 +125,26 @@ export default function Sidebar() {
 						Logout
 					</span>
 				</div>
+			</section>
+
+			<section className="nav_mobile_sidebar d-block d-md-none">
+				<section className="d-flex justify-content-around">
+					<div onClick={() => handleChangePageSidebar("dashboard")}>
+						<Menu stroke={isActive === "dashboard" ? "#6379F4" : "#4D4B57"} />
+					</div>
+					<div onClick={() => handleChangePageSidebar("transfer")}>
+						<ArrowUp stroke={isActive === "transfer" ? "#6379F4" : "#4D4B57"} />
+					</div>
+					<div onClick={showTopUp}>
+						<Plus stroke={isActive === "top-up" ? "#6379F4" : "#4D4B57"} />
+					</div>
+					<div onClick={() => handleChangePageSidebar("profile")}>
+						<UserIc
+							stroke={isActive === "profile" ? "#6379F4" : "#4D4B57"}
+							onClick={() => handleChangePageSidebar("profile")}
+						/>
+					</div>
+				</section>
 			</section>
 			<Modal show={show} onHide={handleClose} centered contentClassName>
 				<Modal.Header closeButton style={{ borderBottom: "none" }}>

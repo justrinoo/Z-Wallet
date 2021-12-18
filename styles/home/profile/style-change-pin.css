@@ -21,3 +21,16 @@
 	box-shadow: 0px 10px 75px rgba(147, 147, 147, 0.1);
 	border-radius: 10px;
 }
+
+@media (max-width: 575.98px) {
+	.profile_changepin-container {
+		width: 100% !important;
+	}
+	.pin_test {
+		width: 50% !important;
+		margin-bottom: 20px;
+	}
+	.auth_pin-input {
+		padding: 0px 14px !important;
+	}
+}

@@ -37,8 +37,6 @@ export default function ChangePin() {
 			setMessage(error.response.data.msg);
 			setError(true);
 			new Error(error.response);
-			console.log(error.response);
-			console.log("pin => ", pin);
 		}
 	};
 
@@ -52,7 +50,7 @@ export default function ChangePin() {
 				router.push("/home/profile");
 			}, 1500);
 		} catch (error) {
-			console.log(error.response);
+			new Error(error.response);
 		}
 	};
 
@@ -83,7 +81,7 @@ export default function ChangePin() {
 									: "Enter your current 6 digits Zwallet PIN below to continue to the	next steps."}
 							</p>
 							<div className="profile_changepin-wrapper-pin">
-								<div className="row">
+								<div className="row profile_changepin-container">
 									{maxPin.map((item, idx) => (
 										<>
 											{pinIsSame ? (

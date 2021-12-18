@@ -10,7 +10,6 @@ export default function Pin() {
 	const [statusSubmit, setStatusSubmit] = useState(false);
 
 	const changePin = (event) => {
-		console.log(parseInt(event.target.name, 10) + 1);
 		const nextPinSibling = document.getElementById(
 			`pin-${parseInt(event.target.name, 10) + 1}`
 		);

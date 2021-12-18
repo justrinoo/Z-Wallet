@@ -1,8 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import { useSelector } from "react-redux";
+
 export default function Navbar({ setStatusNotif }) {
-	console.log(setStatusNotif);
 	const user = useSelector((state) => state.user);
 	const fullname = `${user.users.firstName}${user.users.lastName}`;
 	const telp = `${user.users.noTelp}`;
@@ -29,8 +29,8 @@ export default function Navbar({ setStatusNotif }) {
 						<img
 							src={
 								image === "null"
-									? `/images/dummyProfile.png`
-									: `http://localhost:3001/uploads/${image}`
+									? `https://inspektorat.kotawaringinbaratkab.go.id/public/uploads/user/default-user-imge.jpeg`
+									: `${process.env.BASE_URL_PROD}/uploads/${image}`
 							}
 							width={52}
 							style={{ borderRadius: "14px", objectFit: "cover" }}

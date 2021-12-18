@@ -18,7 +18,6 @@ export default function ListUsers({ setSeeAll }) {
 			setPage(response.data.pagination.page);
 		} catch (error) {
 			new Error(error.message);
-			console.log(error);
 		}
 	};
 
@@ -50,7 +49,7 @@ export default function ListUsers({ setSeeAll }) {
 							<img
 								src={
 									receiver.image
-										? `http://localhost:3001/uploads/${receiver.image}`
+										? `${process.env.BASE_URL_PROD}/uploads/${receiver.image}`
 										: "/images/dummyProfile.png"
 								}
 								width={56}

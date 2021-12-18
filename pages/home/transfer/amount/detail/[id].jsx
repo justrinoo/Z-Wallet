@@ -45,7 +45,6 @@ export default function DetailTransferPage() {
 					"/transaction/transfer",
 					setDataTransfer
 				);
-				console.log("berhasil transaksi =>", response.data);
 				const transactionId = response.data.data.id;
 				const setDataInvoice = {
 					amount,
@@ -82,7 +81,6 @@ export default function DetailTransferPage() {
 		setPin({ ...pin, [`pin${event.target.name}`]: event.target.value });
 	};
 
-	console.log(receiver);
 	return (
 		<>
 			<Layout pageTitle="Transfer Detail" valueNav={true}>
@@ -103,7 +101,7 @@ export default function DetailTransferPage() {
 								<img
 									src={
 										receiver.image
-											? `http://localhost:3001/uploads/${receiver.image}`
+											? `${process.env.BASE_URL_PROD}/uploads/${receiver.image}`
 											: "/images/face2.png"
 									}
 									width={70}

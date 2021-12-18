@@ -150,6 +150,9 @@
 .input_active {
 	border-bottom: 1.5px solid #6379f4;
 }
+.auth_form-forgotpassword {
+	text-align: end;
+}
 
 /* PIN */
 .auth_pin-input {
@@ -224,3 +227,62 @@
 	line-height: 1.8rem;
 }
 /*  END RESET PASSWORD */
+
+@media (max-width: 575.98px) {
+	.auth_main {
+		flex-direction: column;
+	}
+	.auth_content-image {
+		display: none;
+	}
+	.auth_column {
+		width: 100% !important;
+	}
+	.auth_column:nth-child(1) {
+		display: none;
+	}
+	.auth_form-title {
+		width: 100%;
+	}
+	.auth_form-paragraph {
+		width: 100%;
+	}
+	.auth_form-input {
+		width: 145% !important;
+	}
+	.auth_form-forgotpassword {
+		text-align: center;
+	}
+	.auth_form-button {
+		width: 145% !important;
+	}
+	.auth_form-title-to-signup {
+		width: 100%;
+		margin-left: 55px;
+	}
+	.auth_reset-title {
+		width: 100%;
+	}
+	.auth_reset-paragraph {
+		width: 100%;
+	}
+	.auth_pin-title {
+		width: 100%;
+		font-size: 16px;
+		line-height: 1.6rem;
+	}
+	.auth_pin-description {
+		width: 100%;
+	}
+	.auth_pin-form {
+		margin: 0px auto;
+	}
+
+	.auth_pin-success-title {
+		font-size: 18px;
+		width: 100%;
+	}
+	.auth_pin-success-paragraph {
+		width: 100%;
+	}
+}

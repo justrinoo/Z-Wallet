@@ -20,7 +20,6 @@ export default function AmountDetailTransferMoney(props) {
 		getDetailTransferMoneyReceiver();
 	}, [id]);
 
-	console.log(user);
 	return (
 		<>
 			<Layout pagetitle="Transfer Amount Receiver" valueNav={true}>

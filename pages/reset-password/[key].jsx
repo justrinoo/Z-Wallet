@@ -33,7 +33,6 @@ export default function ResetPassword() {
 				newPassword,
 				confirmPassword,
 			};
-			// console.log("FORGOT PASSWORD RUNNING...", setDataForgotPassword);
 			const response = await dispatch(resetPassword(setDataForgotPassword));
 			setError(false);
 			toast(response.value.data.msg);

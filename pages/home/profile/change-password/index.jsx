@@ -121,7 +121,7 @@ export default function ChangePassword() {
 											{message}
 										</p>
 									) : null}
-									<div className="w-50 mx-auto mt-3">
+									<div className="profile_changepassword-button-change mx-auto mt-3">
 										<Button disabled={!isDisabled}>Change Password</Button>
 									</div>
 								</form>

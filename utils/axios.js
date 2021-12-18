@@ -2,7 +2,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 const axiosInterceptors = axios.create({
-	baseURL: process.env.BASE_URL_DEV,
+	baseURL: process.env.BASE_URL_PROD,
 });
 
 axiosInterceptors.interceptors.request.use(
@@ -19,8 +19,6 @@ axiosInterceptors.interceptors.request.use(
 
 axiosInterceptors.interceptors.response.use(
 	function (response) {
-		console.log("response axios =>", response);
-
 		return response;
 	},
 	function (error) {

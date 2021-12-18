@@ -17,7 +17,7 @@ export default function ListReCeiver({ receivers }) {
 				<img
 					src={
 						receivers.image
-							? `http://localhost:3001/uploads/${receivers.image}`
+							? `${process.env.BASE_URL_PROD}/uploads/${receivers.image}`
 							: "/images/face1.png"
 					}
 					width={70}

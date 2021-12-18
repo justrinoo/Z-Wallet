@@ -78,7 +78,7 @@ export default function NewPhoneNumber() {
 										{message}
 									</p>
 								) : null}
-								<div className="w-50 mx-auto">
+								<div className="profile_phonenumber-button-add-phone mx-auto">
 									<Button disabled={!isDisabled}>Add Phone Number</Button>
 								</div>
 							</form>

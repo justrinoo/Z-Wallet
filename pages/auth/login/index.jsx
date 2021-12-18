@@ -113,17 +113,15 @@ export default function Login() {
 									onChange={changeTextInput}
 								/>
 							</div>
-							<div className="text-end">
-								<Link
-									href="/auth/forgot-password"
-									className="text-decoration-none"
-									passHref
-								>
-									<span className="auth_form-forgotpassword">
-										Forgot Password?
-									</span>
-								</Link>
-							</div>
+							<Link
+								href="/auth/forgot-password"
+								className="text-decoration-none"
+								passHref
+							>
+								<span className="auth_form-forgotpassword">
+									Forgot Password?
+								</span>
+							</Link>
 							{isError ? (
 								<p
 									className="text-center auth_form-title-error"

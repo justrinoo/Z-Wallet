@@ -21,7 +21,7 @@ export default function ManagePhone() {
 				return true;
 			}
 		} catch (error) {
-			console.log(error.response);
+			new Error(error.response);
 		}
 	};
 

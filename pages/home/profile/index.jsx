@@ -17,9 +17,6 @@ export default function Profile() {
 	});
 	// FormDataImage.append("image", image);
 
-	for (const test in formImage) {
-		console.log(formImage[test]);
-	}
 	const profileMenuChangePage = (someText) => {
 		if (someText === id) {
 			router.push(`/home/profile/detail/${someText}`);
@@ -41,9 +38,7 @@ export default function Profile() {
 			const response = await axios.patch(`/user/image/${id}`, formData);
 			dispatch(getUserById(response.data.data.id));
 			toast.success(response.data.msg);
-		} catch (error) {
-			console.log("error =>", error.response);
-		}
+		} catch (error) {}
 	};
 
 	const fullName = `${user.users.firstName} ${user.users.lastName}`;
@@ -58,10 +53,10 @@ export default function Profile() {
 				dispatch(getUserById(response.data.data.id));
 				toast.success(response.data.msg);
 			} catch (error) {
-				console.log(error.response);
+				new Error(error.response);
 			}
 		} else {
-			console.log("cancel image...");
+			return false;
 		}
 	};
 
@@ -69,7 +64,6 @@ export default function Profile() {
 		formImage.image ? changeFileImage() : null;
 	}, [formImage]);
 
-	console.log(imageProfile);
 	return (
 		<>
 			<Layout pageTitle="Profile" valueNav={true}>
@@ -82,8 +76,8 @@ export default function Profile() {
 								<img
 									src={`${
 										imageProfile === "null"
-											? "/images/face1.png"
-											: `http://localhost:3001/uploads/${imageProfile}`
+											? "https://inspektorat.kotawaringinbaratkab.go.id/public/uploads/user/default-user-imge.jpeg"
+											: `${process.env.BASE_URL_PROD}/uploads/${imageProfile}`
 									} `}
 									width={80}
 									height={80}

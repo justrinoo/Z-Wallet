@@ -35,3 +35,28 @@
 .profile_phonenumber-form-field-phone-wrapper {
 	display: flex;
 }
+.profile_phonenumber-button-add-phone {
+	width: 50%;
+}
+
+@media (max-width: 575.98px) {
+	.profile_main-information-detail-description {
+		font-size: 14px;
+	}
+	.profile_phonenumber-form {
+		width: 100%;
+	}
+	.profile_phonenumber-form-wrapper {
+		width: 100% !important;
+	}
+	.profile_phonenumber-form-field-format-number {
+		font-size: 14px !important;
+	}
+	.profile_phonenumber-form-input {
+		font-size: 12px !important;
+	}
+	.profile_phonenumber-button-add-phone {
+		width: 100%;
+		font-size: 14px;
+	}
+}

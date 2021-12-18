@@ -14,17 +14,14 @@ export default function Invoice({ data }) {
 		image,
 		transactionId,
 	} = data;
-	console.log("data transaksi =>", data);
 	const router = useRouter();
 
 	const generateTransaction = async () => {
 		try {
 			const response = await axios.get(`/export/transaction/${transactionId}`);
-			console.log("generate data =>", response.data);
 			router.push(response.data.data.url);
 		} catch (error) {
 			new Error(error.response);
-			console.log(error.response);
 		}
 	};
 
@@ -85,7 +82,7 @@ export default function Invoice({ data }) {
 						<img
 							src={
 								image
-									? `http://localhost:3001/uploads/${image}`
+									? `${process.env.BASE_URL_PROD}/uploads/${image}`
 									: "/images/face2.png"
 							}
 							width={70}

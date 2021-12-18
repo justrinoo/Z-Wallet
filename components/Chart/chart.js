@@ -2,8 +2,6 @@ import React from "react";
 import { Bar } from "react-chartjs-2";
 
 export default function Chart({ dataListExpanse, dataListIncome }) {
-	console.log("expanse =>", dataListExpanse);
-	console.log("income =>", dataListIncome);
 	let tempDayExapanse = [];
 
 	dataListExpanse.map((value) => {

@@ -11,6 +11,7 @@ export default function DetailProfile() {
 	const [lastName, setLastName] = useState("");
 	const router = useRouter();
 	const { id } = router.query;
+	console.log("id =>", id);
 	const [statusChangeFirstName, setStatusChangeFirstName] = useState(false);
 	const [statusChangeLastName, setStatusChangeLastName] = useState(false);
 	const user = useSelector((state) => state.user);
@@ -27,10 +28,9 @@ export default function DetailProfile() {
 				dispatch(getUserById(response.data.data.id));
 				setStatusChangeFirstName(false);
 				setStatusChangeLastName(false);
-				console.log("user has been updated =>", response.data);
 			}
 		} catch (error) {
-			console.log(error.response);
+			new Error(error.response);
 		}
 	};
 

@@ -8,7 +8,7 @@ export default function InputPin({
 }) {
 	return (
 		<>
-			<div className="col-2">
+			<div className="col-2 pin_test">
 				<input
 					className={`auth_pin-input ${classNameChildren}`}
 					name={namePin}

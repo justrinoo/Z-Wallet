@@ -12,10 +12,10 @@ export default function FilterHistoryTransaction() {
 	const [showMenu, setShowMenu] = useState(false);
 
 	const showMenuFilter = (text) => {
-		if (text === "filter") {
-			setShowMenu(true);
-		} else {
+		if (showMenu === true) {
 			setShowMenu(false);
+		} else {
+			setShowMenu(true);
 		}
 	};
 
@@ -106,7 +106,7 @@ export default function FilterHistoryTransaction() {
 									<img
 										src={`${
 											receiver.image
-												? `http://localhost:3001/uploads/${receiver.image}`
+												? `${process.env.BASE_URL_PROD}/uploads/${receiver.image}`
 												: "/images/face1.png"
 										}`}
 										width={56}

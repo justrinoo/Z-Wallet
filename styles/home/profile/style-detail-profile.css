@@ -57,3 +57,23 @@
 }
 
 /* END DETAIL PROFILE */
+
+@media (max-width: 575.98px) {
+	.profile_main-information-detail-description {
+		width: 100%;
+	}
+	.profile_main-information-detail-list-description-title-value {
+		font-size: 16px;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+		width: 250px;
+	}
+	.profile_main-information-detail-list-description-title-value-email {
+		font-size: 16px;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+		width: 250px;
+	}
+}

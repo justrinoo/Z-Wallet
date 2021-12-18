@@ -222,3 +222,94 @@
 	text-decoration: underline;
 }
 /* END HISTORY FILTER */
+
+@media (max-width: 575.98px) {
+	.dashboard_sidebar {
+		display: none !important;
+	}
+	.dashboard_content-info-balance {
+		width: 100% !important;
+	}
+	.dashboard_content-info-balance-left {
+		width: 100%;
+	}
+	.dashboard_content-info-balance-right {
+		width: 100%;
+		display: flex;
+		align-items: center;
+	}
+	.dashboard_content-info-balance-title {
+		font-size: 18px;
+	}
+	.dashboard_content-info-balance-money {
+		font-size: 16px;
+	}
+	.dashboard_content-info-balance-button {
+		padding: 6px 12px;
+	}
+	.dashboard_content-info-balance-button:nth-child(2) {
+		display: none;
+	}
+	.dashboard_content-container {
+		flex-direction: column;
+	}
+	.dashboard_content-statistic-container {
+		width: 100%;
+	}
+	.dashboard_content-transaction-history {
+		width: 100%;
+	}
+	.dashboard_content-transaction-history-card-list-users-name {
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+		width: 100px;
+		font-size: 14px;
+	}
+	.dashboard_content-transaction-history-card-list-users-accept-money {
+		font-size: 12px;
+	}
+	.dashboard_content-transaction-history-card-list-users-transfer-money {
+		font-size: 12px;
+	}
+	.dashboard_content-transaction-history-card-list-users-description {
+		width: 100%;
+	}
+	.dashboard_filterhistory-main {
+		padding: 0;
+	}
+	.dashboard_filterhistory-card-header {
+		flex-direction: column;
+	}
+	.dashboard_filterhistory-card-title {
+		font-size: 14px;
+		margin-bottom: 30px;
+	}
+	.dashboard_filterhistory-card-body-name {
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+		width: 100px;
+		font-size: 14px;
+	}
+	.dashboard_filterhistory-card-body-accept-money {
+		font-size: 14px;
+	}
+	.dashboard_filterhistory-card-body-transfer-money {
+		font-size: 14px;
+	}
+	.dashboard_filterhistory-card-filter {
+		width: 100%;
+		left: 0px;
+		opacity: 0.9;
+	}
+	.transfer_list-receiers_pagination {
+		margin-top: 20px;
+	}
+	.transfer_list-receiers_pagination-previous {
+		padding: 8px 18px !important;
+	}
+	.transfer_list-receiers_pagination-next {
+		padding: 8px 18px !important;
+	}
+}

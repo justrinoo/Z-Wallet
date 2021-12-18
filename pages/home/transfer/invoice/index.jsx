@@ -26,7 +26,6 @@ export default function InvoicePage() {
 		status,
 		transactionId,
 	};
-	// console.log("data hasil transaksi", data);
 	return (
 		<>
 			<Layout pageTitle="Transfer Invoice Detail" valueNav={true}>
