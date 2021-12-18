@@ -1,34 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
+  <h1> Zwallet </h1>
+  <div>
+    <a href="https://zet-wallet.vercel.app"> zwallet </a>
+  </div>
+  </div>
+  
+  ## 
+  
+  ## Getting Started
+Zwallet is a top up money site where you can make transactions with everyone on zwallet, the display on the zwallet website is very easy to understand.
+  
+## Installation
 
-## Getting Started
+If you want to use zwallet you have to use nodejs version [12+](https://nodejs.org/dist/v16.13.1/node-v16.13.1-x64.msi)
 
-First, run the development server:
+Install the dependencies and devDependencies and start the server.
 
-```bash
+```sh
+git clone this repository
+cd repository
+npm install 
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Build With
+- [NodeJs] - Runtime Javascript environment for the backend
+- [NextJs] - UI Library for the frontend
+- [Redux] - Library State Management
+- [Redux-Persist] - for handle redux state management
+- [Vercel] - Hosting for production
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Demo
+![image](https://user-images.githubusercontent.com/50629099/146649014-457496f2-b14a-428f-9723-d94bbea7c82e.png)
+![image](https://user-images.githubusercontent.com/50629099/146649076-1e18fb22-370c-44e3-b0ce-de43d36d3149.png)
+![image](https://user-images.githubusercontent.com/50629099/146649397-016a7515-a2bd-4192-ade9-0be949c2aa1a.png)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
